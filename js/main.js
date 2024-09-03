@@ -1,4 +1,4 @@
-// Base de datos de usuarios (simulada con un array)
+// Base de datos de usuarios
 const usuarios = [
     { username: 'admin', password: '1234' },
     { username: 'usuario1', password: '5678' },
@@ -24,8 +24,7 @@ function login() {
         gestionarStock();
     } else {
         alert("Usuario o contraseña incorrectos. Inténtelo de nuevo.");
-        // En lugar de recursividad, podrías usar un bucle o manejar esto de otra manera
-        login(); // Volver a intentar login
+        login(); 
     }
 }
 
@@ -63,7 +62,7 @@ function agregarProducto() {
         alert("Producto agregado exitosamente.");
     } else {
         alert("Cantidad inválida. Inténtelo de nuevo.");
-        agregarProducto(); // Volver a intentar agregar producto
+        agregarProducto(); 
     }
 }
 
@@ -76,7 +75,7 @@ function eliminarProducto() {
         const productoEliminado = stock.splice(index, 1);
         alert(`Producto ${productoEliminado[0].producto} eliminado del stock.`);
         
-        // Llamar a mostrarStock para mostrar el stock actualizado
+        
         mostrarStock();
     } else {
         alert("Producto no encontrado.");
@@ -107,12 +106,11 @@ function gestionarStock() {
     } while (opcion !== 4);
 }
 
-// Añadir un event listener al botón para iniciar el simulador
+
 document.getElementById('startBtn').addEventListener('click', function() {
-    login(); // Inicia el proceso de login y gestión de stock
+    login(); 
 });
 
-// Función para realizar login
 function login() {
     const username = prompt("Ingrese su nombre de usuario:");
     const password = prompt("Ingrese su contraseña:");
@@ -124,11 +122,10 @@ function login() {
         gestionarStock();
     } else {
         alert("Usuario o contraseña incorrectos. Inténtelo de nuevo.");
-        login(); // Volver a intentar login
+        login(); 
     }
 }
 
-// Función para mostrar el stock
 function mostrarStock() {
     console.log("Stock actual:");
     stock.forEach(item => {
@@ -136,7 +133,6 @@ function mostrarStock() {
     });
 }
 
-// Función para agregar producto al stock
 function agregarProducto() {
     const producto = prompt("Ingrese el nombre del producto:");
     const cantidad = parseInt(prompt("Ingrese la cantidad del producto:"));
@@ -151,11 +147,10 @@ function agregarProducto() {
         alert("Producto agregado exitosamente.");
     } else {
         alert("Cantidad inválida. Inténtelo de nuevo.");
-        agregarProducto(); // Volver a intentar agregar producto
+        agregarProducto(); 
     }
 }
 
-// Función para eliminar producto del stock
 function eliminarProducto() {
     const id = parseInt(prompt("Ingrese el ID del producto que desea eliminar:"));
     const index = stock.findIndex(item => item.id === id);
@@ -164,14 +159,11 @@ function eliminarProducto() {
         const productoEliminado = stock.splice(index, 1);
         alert(`Producto ${productoEliminado[0].producto} eliminado del stock.`);
         
-        // Llamar a mostrarStock para mostrar el stock actualizado
         mostrarStock();
     } else {
         alert("Producto no encontrado.");
     }
 }
-
-// Función para gestionar el stock (menú principal)
 function gestionarStock() {
     let opcion;
     do {
@@ -193,9 +185,7 @@ function gestionarStock() {
                 alert("Opción no válida.");
         }
     } while (opcion !== 4);
-}
-
-// Añadir un event listener al botón para iniciar el simulador
+    }
 document.getElementById('startBtn').addEventListener('click', function() {
-    login(); // Inicia el proceso de login y gestión de stock
+    login(); 
 });
